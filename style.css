@@ -1,0 +1,135 @@
+html,
+body {
+    margin: 0;
+    background-color: rgb(5, 7, 32);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.sol {
+    background-color: rgb(255, 85, 0);
+    position: absolute;
+    left: 42%;
+    transform: translateX(-42%);
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: aparecer 10s ease-in-out forwards;
+}
+
+.estrella {
+    position: absolute;
+    left: 20%;
+    transform: translateX(-20%);
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0; /* Comienza invisible */
+    clip-path: polygon(50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%);
+    animation: aparecerE 10s ease-in-out forwards,/* Animación de opacidad */
+               respirar 10s ease-in-out infinite; /* Animación de aparición */
+}
+
+
+/* Estrellas con diferentes posiciones */
+.estrella1 { top: 20px; left: 60%; animation-delay: 5s; }
+.estrella2 { top: 90px; left: 80%; animation-delay: 6s; }
+.estrella3 { top: 150px; left: 30%; animation-delay: 7s; }
+.estrella4 { top: 220px; left: 70%; animation-delay: 8s; }
+.estrella5 { top: 50px; left: 20%; animation-delay: 5.5s; }
+.estrella6 { top: 300px; left: 40%; animation-delay: 6.5s; }
+.estrella7 { top: 400px; left: 50%; animation-delay: 7.5s; }
+.estrella8 { top: 500px; left: 10%; animation-delay: 8.5s; }
+.estrella9 { top: 600px; left: 95%; animation-delay: 9s; }
+.estrella10 { top: 350px; left: 5%; animation-delay: 6s; }
+.estrella11 { top: 250px; left: 25%; animation-delay: 9.5s; }
+.estrella12 { top: 180px; left: 55%; animation-delay: 10s; }
+.estrella13 { top: 100px; left: 5%; animation-delay: 10.5s; }
+.estrella14 { top: 400px; left: 90%; animation-delay: 11s; }
+.estrella15 { top: 500px; left: 65%; animation-delay: 11.5s; }
+
+
+
+@keyframes respirar {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes aparecerE {
+    0% {
+        opacity: 0;
+        transform: translateY(-90%); /* Estado inicial */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(220%); /* Estado final (ya no desplaza tanto) */
+    }
+}
+
+@keyframes aparecer {
+    0% {
+        background-color: rgb(255, 213, 0);
+        transform: translateY(-30%); /* Estado inicial */
+    }
+    100% {
+        background-color: rgb(255, 85, 0);
+        transform: translateY(310%); /* Estado final */
+    }
+}
+
+/*LETRAS*/
+
+.frase {
+    font-size: 2em;
+    color: white;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .frase::before {
+    content: "H"; /* Agregamos la primera letra */
+    opacity: 0; /* Inicialmente invisible */
+    animation: aparecerLetra 1s ease forwards;
+    animation-delay: 0s; /* Delay para la primera letra */
+  }
+  
+  .frase::after {
+    content: "o";
+    opacity: 0;
+    animation: aparecerLetra 1s ease forwards;
+    animation-delay: 0.5s; /* Delay progresivo para cada letra */
+  }
+  
+  @keyframes aparecerLetra {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px); /* Mueve la letra hacia arriba */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Vuelve a la posición normal */
+    }
+  }
+  
+  
