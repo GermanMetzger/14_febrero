@@ -4,6 +4,8 @@ body {
     background-color: rgb(5, 7, 32);
     overflow-x: hidden;
     overflow-y: hidden;
+    font-family: "Roboto", serif;
+    animation: cielo 5s ease-in-out forwards;
 }
 
 .sol {
@@ -15,8 +17,39 @@ body {
     height: 200px;
     border-radius: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    animation: aparecer 10s ease-in-out forwards;
+    animation: aparecer 6s ease-in-out forwards;
 }
+
+.luna {
+    width: 200px;
+    height: 200px;
+    background-color: #f5f5f5; /* Color de la luna */
+    border-radius: 50%; /* Hacemos que sea un círculo */
+    position: relative;
+    overflow: hidden;
+}
+
+.sombra {
+    width: 190px;
+    height: 190px;
+    background-color: rgb(5, 7, 32); /* Color de la sombra */
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50px; /* Ajuste para simular la sombra sin que se vea el borde */
+}
+
+.posicionLuna{
+    position: absolute;
+    transform-origin:bottom;
+    transform:rotate(210deg);
+    top: -80%;
+    left: 88%;
+    animation: moverLuna 3s ease-out forwards;
+    animation-delay: 5s;
+}
+
+
 
 .estrella {
     position: absolute;
@@ -36,8 +69,80 @@ body {
             32% 57%,
             2% 35%,
             39% 35%);
-    animation: aparecerE 10s ease-in-out forwards,/* Animación de opacidad */
-               respirar 10s ease-in-out infinite; /* Animación de aparición */
+    animation: aparecerE 6s ease-in-out forwards,/* Animación de opacidad */
+               respirar 6.5s ease-in-out infinite; /* Animación de aparición */
+}
+
+.estrella-fugaz1 {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 4px;
+    height: 4px;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+    animation: movimiento-fugaz 7s linear infinite, destello 10s linear infinite;
+  }
+
+.estrella-fugaz2 {
+    position: absolute;
+    top: -20%;
+    left: 60%;
+    width: 4px;
+    height: 4px;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+    animation: movimiento-fugaz2 4s linear infinite, destello 15s linear infinite;
+  }
+  
+  @keyframes movimiento-fugaz {
+    0% {
+      top: -20%;
+      left: 30%;
+      transform: scale(1);
+    }
+    100% {
+      top: 80%;
+      left: 60%;
+      transform: scale(0);
+    }
+  }
+
+  @keyframes movimiento-fugaz2 {
+    0% {
+      top: -20%;
+      left: 60%;
+      transform: scale(1);
+    }
+    100% {
+      top: 80%;
+      left: 90%;
+      transform: scale(0);
+    }
+  }
+  
+  @keyframes destello {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.monte{
+    position: absolute;
+    width: 1700px;
+    height: 1700px;
+    background-color: #007206;
+    border-radius: 50%;
 }
 
 
@@ -58,7 +163,101 @@ body {
 .estrella14 { top: 400px; left: 90%; animation-delay: 11s; }
 .estrella15 { top: 500px; left: 65%; animation-delay: 11.5s; }
 
+/* montes */
 
+.monte1 { top: 85%; left: -45%; animation: monteOscuro2 6s linear forwards; animation-delay: 2s;}
+.monte2 { top: 75%; left: 0%; background-color: #03b10b; animation: monteOscuro1 6s ease-out forwards; animation-delay: 3s;}
+.monte3 { top: 85%; left: 45%; animation: monteOscuro2 6s linear forwards; animation-delay: 2s;}
+
+/* nube */
+
+.blanco { 
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.nubes1{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 25%;
+    left: 20%;
+    animation: izquierda 15s ease-out forwards;
+}
+
+.nubes2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 70%;
+    transform: scaleX(-1);
+    animation: derecha 10s ease-out forwards;
+}
+
+.nube1 {position: absolute; top: 75px; left: 130px; }
+.nube2 {position: absolute; top: 10px; left: 110px; }
+.nube3 {position: absolute; top: 75px; left: 20px; }
+.nube4 {position: absolute; top: 70px; left: 80px; }
+.nube5 {position: absolute; top: 15px; left: 55px; }
+
+@keyframes monteOscuro1 {
+    0% {
+        top: 75%;
+        background-color: #03b10b;
+    }
+
+    100% {
+        top: 110%;
+        background-color: #016606;
+    }
+}
+
+@keyframes izquierda {
+    0% {
+        left: 20%;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
+
+@keyframes derecha {
+    0% {
+        left: 70%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+@keyframes monteOscuro2 {
+    0% {
+        top: 85%;
+        background-color: #007206;
+    }
+
+    100% {
+        top: 140%;
+        background-color: #004704;
+    }
+}
+
+
+@keyframes moverLuna {
+    0% {
+        top: -80%;
+    }
+
+    100% {
+        top: -17%;
+    }
+}
 
 @keyframes respirar {
     0% {
@@ -85,51 +284,95 @@ body {
 
 @keyframes aparecer {
     0% {
+        width: 150px;
+        height: 150px;
         background-color: rgb(255, 213, 0);
         transform: translateY(-30%); /* Estado inicial */
     }
     100% {
-        background-color: rgb(255, 85, 0);
-        transform: translateY(310%); /* Estado final */
+        width: 200px;
+        height: 200px;
+        background-color: rgb(255, 128, 65);
+        transform: translateY(500%); /* Estado final */
+    }
+}
+
+@keyframes cielo {
+    0% {
+        background-color: rgb(42, 100, 175);
+
+    }
+    100% {
+        background-color: rgb(5, 7, 32);
     }
 }
 
 /*LETRAS*/
 
-.frase {
-    font-size: 2em;
-    color: white;
-    font-family: Arial, sans-serif;
+.palabra {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translateY(-50%);
-  }
-  
-  .frase::before {
-    content: "H"; /* Agregamos la primera letra */
-    opacity: 0; /* Inicialmente invisible */
-    animation: aparecerLetra 1s ease forwards;
-    animation-delay: 0s; /* Delay para la primera letra */
-  }
-  
-  .frase::after {
-    content: "o";
+    top: 20%;
+    left: 4%;
+    transform: translateX(4%);
+    transform: translateY(20%);
+    width: 90%;
+    height: 300px;
+    font-size: 80px;
+    color: #ff4949;
+    text-align: center;
+    padding: 50px;
     opacity: 0;
-    animation: aparecerLetra 1s ease forwards;
-    animation-delay: 0.5s; /* Delay progresivo para cada letra */
-  }
-  
-  @keyframes aparecerLetra {
+    font-weight: bold;
+}
+
+@keyframes ver {
     0% {
-      opacity: 0;
-      transform: translateY(-10px); /* Mueve la letra hacia arriba */
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
     }
     100% {
-      opacity: 1;
-      transform: translateY(0); /* Vuelve a la posición normal */
+        opacity: 0;
     }
-  }
+}
+
+.txt1 {
+    animation: ver 5s ease-in-out 9s forwards;
+}
+.txt2{
+    animation: ver 5s ease-in-out 15s forwards;
+}
+.txt3{
+    animation: ver 5s ease-in-out 21s forwards;
+}
+.txt4{
+    animation: ver 5s ease-in-out 27s forwards;
+}
+.txt5{
+    animation: ver 5s ease-in-out 33s forwards;
+}
+.txt6{
+    animation: ver 5s ease-in-out 39s forwards;
+}
+.txt7{
+    animation: ver 5s ease-in-out 45s forwards;
+}
+.txt8{
+    animation: ver 5s ease-in-out 51s forwards;
+}
+.txt9{
+    animation: ver 5s ease-in-out 57s forwards;
+}
+
+
   
+  
+
+
+
+
+
+
+
   
